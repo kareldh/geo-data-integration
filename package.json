@@ -2,10 +2,13 @@
   "name": "geo-data-integration",
   "version": "1.0.0",
   "main": "index.js",
+  "module": "module.js",
   "description": "This package is based on the OpenLR location referencing methods to map a linestring to the network of a digital map.",
   "author": "Karel D'haene <karel.dhaene>@gmail.com (https://github.com/kareldh)",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/node": "^7.4.5",
     "@turf/along": "^6.0.1",
     "@turf/bearing": "^6.0.1",
     "@turf/distance": "^6.0.1",
@@ -28,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
     "jest": "^24.8.0"
