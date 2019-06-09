@@ -1,6 +1,6 @@
 {
   "name": "geo-data-integration",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "module": "module.js",
   "description": "This package is based on the OpenLR location referencing methods to map a linestring to the network of a digital map.",
