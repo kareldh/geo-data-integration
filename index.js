@@ -1,27 +1,27 @@
-let Decoder = require("./src/utils/Integration/OpenLR/Decoder");
-let Encoder = require("./src/utils/Integration/OpenLR/Encoder");
+let Decoder = require("./transpiled/utils/Integration/OpenLR/Decoder");
+let Encoder = require("./transpiled/utils/Integration/OpenLR/Encoder");
 
-let {configProperties,decoderProperties} = require("./src/utils/Integration/OpenLR/Coder/CoderSettings");
-let Location = require("./src/utils/Integration/OpenLR/Coder/Location");
-let LocationReferencePoint = require("./src/utils/Integration/OpenLR/Coder/LocationReferencePoint");
-let LineEncoder = require("./src/utils/Integration/OpenLR/Coder/LineEncoder");
-let LineDecoder = require("./src/utils/Integration/OpenLR/Coder/LineDecoder");
-let JsonFormat = require("./src/utils/Integration/OpenLR/Coder/JsonFormat");
-let RawLineLocationReference = require("./src/utils/Integration/OpenLR/Coder/RawLineLocationReference");
+let {configProperties,decoderProperties} = require("./transpiled/utils/Integration/OpenLR/Coder/CoderSettings");
+let Location = require("./transpiled/utils/Integration/OpenLR/Coder/Location");
+let LocationReferencePoint = require("./transpiled/utils/Integration/OpenLR/Coder/LocationReferencePoint");
+let LineEncoder = require("./transpiled/utils/Integration/OpenLR/Coder/LineEncoder");
+let LineDecoder = require("./transpiled/utils/Integration/OpenLR/Coder/LineDecoder");
+let JsonFormat = require("./transpiled/utils/Integration/OpenLR/Coder/JsonFormat");
+let RawLineLocationReference = require("./transpiled/utils/Integration/OpenLR/Coder/RawLineLocationReference");
 
-let Enum = require("./src/utils/Integration/OpenLR/Map/Enum");
-let Line = require("./src/utils/Integration/OpenLR/Map/Line");
-let Node = require("./src/utils/Integration/OpenLR/Map/Node");
-let MapDataBase = require("./src/utils/Integration/OpenLR/Map/MapDataBase");
+let Enum = require("./transpiled/utils/Integration/OpenLR/Map/Enum");
+let Line = require("./transpiled/utils/Integration/OpenLR/Map/Line");
+let Node = require("./transpiled/utils/Integration/OpenLR/Map/Node");
+let MapDataBase = require("./transpiled/utils/Integration/OpenLR/Map/MapDataBase");
 
-let {LinesDirectlyToLRPs} = require("./src/utils/Integration/OpenLR/experimental/LinesDirectlyToLRPs");
+let {LinesDirectlyToLRPs} = require("./transpiled/utils/Integration/OpenLR/experimental/LinesDirectlyToLRPs");
 
-let GeoJsonIntegration = require("./src/utils/Integration/OpenLRIntegration/GeoJsonIntegration");
-let OSMIntegration = require("./src/utils/Integration/OpenLRIntegration/OSMIntegration");
-let RoutableTilesIntegration = require("./src/utils/Integration/OpenLRIntegration/RoutableTilesIntegration");
-let WegenregisterAntwerpenIntegration = require("./src/utils/Integration/OpenLRIntegration/WegenregisterAntwerpenIntegration");
+let GeoJsonIntegration = require("./transpiled/utils/Integration/OpenLRIntegration/GeoJsonIntegration");
+let OSMIntegration = require("./transpiled/utils/Integration/OpenLRIntegration/OSMIntegration");
+let RoutableTilesIntegration = require("./transpiled/utils/Integration/OpenLRIntegration/RoutableTilesIntegration");
+let WegenregisterAntwerpenIntegration = require("./transpiled/utils/Integration/OpenLRIntegration/WegenregisterAntwerpenIntegration");
 
-let tileUtils = require("./src/utils/tileUtils");
+let tileUtils = require("./transpiled/utils/tileUtils");
 
 exports.Decoder = Decoder;
 exports.Encoder = Encoder;
