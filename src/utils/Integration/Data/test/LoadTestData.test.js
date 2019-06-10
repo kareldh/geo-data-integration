@@ -9,4 +9,4 @@ test('loadNodesLineStringsWegenregisterAntwerpen',done =>{
             done();
         }
     );
-},10000);
+},60000);

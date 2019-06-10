@@ -1,6 +1,6 @@
 {
   "name": "geo-data-integration",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "module": "module.js",
   "description": "This package is based on the OpenLR location referencing methods to map a linestring to the network of a digital map.",
@@ -18,16 +18,12 @@
     "axios": "^0.19.0",
     "fast-xml-parser": "^3.12.16",
     "geojson-rbush": "^3.1.1",
-    "gh-pages": "^2.0.1",
     "heap": "^0.2.6",
     "ldfetch": "^1.1.1-alpha",
-    "leaflet": "^1.4.0",
-    "leaflet-ant-path": "^1.2.1",
-    "openlr-js": "^3.0.4",
     "rbush": "^2.0.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest src"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
