@@ -9,4 +9,4 @@ test('loadNodesLineStringsWegenregisterAntwerpen', function (done) {
     expect(data).toBeDefined();
     done();
   });
-}, 10000);
+}, 60000);

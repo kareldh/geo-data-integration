@@ -16,10 +16,9 @@ var _Encoder = _interopRequireDefault(require("../Encoder"));
 
 var _Enum = require("../map/Enum");
 
-var _openlrJs = require("openlr-js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// import {BinaryEncoder, BinaryDecoder, Serializer, LocationReference} from 'openlr-js';
 test('encode doesn\'t crash with lane existing of single line', function () {
   var startData = (0, _Helperfunctions.generateStraightLaneTestData)();
 
@@ -1044,106 +1043,101 @@ test("encode way on loop without junctions, so infinite expansion would occur if
   expect(encoded.LRPs.length).toEqual(2);
   expect(encoded.posOffset).toEqual(0);
   expect(encoded.negOffset).toEqual(0);
-});
-test.skip('encode lane existing of two lines can be binary encoded and decoded', function () {
-  expect.assertions(1);
-  var startData = (0, _Helperfunctions.generateStraightLaneTestData)();
-
-  var _mapNodesLinesToID11 = (0, _Helperfunctions.mapNodesLinesToID)(startData.nodes, startData.lines),
-      nodes = _mapNodesLinesToID11.nodes,
-      lines = _mapNodesLinesToID11.lines;
-
-  var mapDataBase = new _MapDataBase["default"](lines, nodes);
-  var locLines = startData.doubleLineLane.locationLines;
-  var location = new _Location["default"](_Enum.locationTypeEnum.LINE_LOCATION, 1);
-  location.locationLines = locLines;
-  location.posOffset = 0;
-  location.negOffset = 0;
-
-  var jsonEncoded = _Encoder["default"].encode(location, mapDataBase, 0, 0); // //encode binary
-  // const binaryEncoder = new BinaryEncoder();
-  // const rawLocationReference = Serializer.deserialize(jsonEncoded);
-  // const locationReference = binaryEncoder.encodeDataFromRLR(rawLocationReference);
-  // const openLrBinary = locationReference.getLocationReferenceData();
-  // const openLrString = openLrBinary.toString('base64');
-  //
-  // const binaryDecoder = new BinaryDecoder();
-  //
-  // const openLrBinary2 = Buffer.from(openLrString, 'base64');
-  // const locationReference2 = LocationReference.fromIdAndBuffer('binary', openLrBinary2);
-  // const rawLocationReference2 = binaryDecoder.decodeData(locationReference2);
-  // const jsonObject = Serializer.serialize(rawLocationReference2);
-  // console.log(jsonEncoded.properties);
-  // expect(jsonObject).toEqual(jsonEncoded);
-
-
-  var binaryEncoder = new _openlrJs.BinaryEncoder();
-  var jsonObject2 = {
-    "type": "RawLineLocationReference",
-    "properties": {
-      "_id": "binary",
-      "_locationType": 1,
-      "_returnCode": null,
-      "_points": {
-        "type": "Array",
-        "properties": [{
-          "type": "LocationReferencePoint",
-          "properties": {
-            "_bearing": 129.375,
-            "_distanceToNext": 205,
-            "_frc": 6,
-            "_fow": 3,
-            "_lfrcnp": 6,
-            "_isLast": false,
-            "_longitude": 3.7538936137926395,
-            "_latitude": 52.374883889902236,
-            "_sequenceNumber": 1
-          }
-        }, {
-          "type": "LocationReferencePoint",
-          "properties": {
-            "_bearing": 309.375,
-            "_distanceToNext": 0,
-            "_frc": 6,
-            "_fow": 3,
-            "_lfrcnp": 7,
-            "_isLast": true,
-            "_longitude": 4.7563336137926395,
-            "_latitude": 52.373583889902235,
-            "_sequenceNumber": 2
-          }
-        }]
-      },
-      "_offsets": {
-        "type": "Offsets",
-        "properties": {
-          "_pOffset": 0,
-          "_nOffset": 0,
-          "_version": 3,
-          "_pOffRelative": 0,
-          "_nOffRelative": 0
-        }
-      }
-    }
-  };
-
-  var rawLocationReference2 = _openlrJs.Serializer.deserialize(jsonObject2);
-
-  var locationReference2 = binaryEncoder.encodeDataFromRLR(rawLocationReference2);
-  var openLrBinary2 = locationReference2.getLocationReferenceData();
-  var openLrString2 = openLrBinary2.toString('base64');
-  console.log(openLrString2);
-  var binaryDecoder = new _openlrJs.BinaryDecoder(); // const openLrString = 'CwNhbCU+jzPLAwD0/34zGw==';
-
-  var openLrBinary = Buffer.from(openLrString2, 'base64');
-
-  var locationReference = _openlrJs.LocationReference.fromIdAndBuffer('binary', openLrBinary);
-
-  var rawLocationReference = binaryDecoder.decodeData(locationReference);
-
-  var jsonObject = _openlrJs.Serializer.serialize(rawLocationReference);
-
-  console.log(jsonObject); // expect(openLrString2).toEqual(openLrString);
-
-  expect(jsonObject).toEqual(jsonObject2);
-});
+}); // test.skip('encode lane existing of two lines can be binary encoded and decoded',()=>{
+//     expect.assertions(1);
+//     let startData = generateStraightLaneTestData();
+//     let {nodes,lines} = mapNodesLinesToID(startData.nodes,startData.lines);
+//     let mapDataBase = new MapDataBase(lines,nodes);
+//     let locLines = startData.doubleLineLane.locationLines;
+//     let location = new Location(locationTypeEnum.LINE_LOCATION,1);
+//     location.locationLines = locLines;
+//     location.posOffset = 0;
+//     location.negOffset = 0;
+//     let jsonEncoded = Encoder.encode(location,mapDataBase,0,0);
+//
+//     // //encode binary
+//     // const binaryEncoder = new BinaryEncoder();
+//     // const rawLocationReference = Serializer.deserialize(jsonEncoded);
+//     // const locationReference = binaryEncoder.encodeDataFromRLR(rawLocationReference);
+//     // const openLrBinary = locationReference.getLocationReferenceData();
+//     // const openLrString = openLrBinary.toString('base64');
+//     //
+//     // const binaryDecoder = new BinaryDecoder();
+//     //
+//     // const openLrBinary2 = Buffer.from(openLrString, 'base64');
+//     // const locationReference2 = LocationReference.fromIdAndBuffer('binary', openLrBinary2);
+//     // const rawLocationReference2 = binaryDecoder.decodeData(locationReference2);
+//     // const jsonObject = Serializer.serialize(rawLocationReference2);
+//     // console.log(jsonEncoded.properties);
+//     // expect(jsonObject).toEqual(jsonEncoded);
+//
+//     const binaryEncoder = new BinaryEncoder();
+//
+//     const jsonObject2 = {
+//         "type": "RawLineLocationReference",
+//         "properties": {
+//             "_id": "binary",
+//             "_locationType": 1,
+//             "_returnCode": null,
+//             "_points": {
+//                 "type": "Array",
+//                 "properties": [
+//                     {
+//                         "type": "LocationReferencePoint",
+//                         "properties": {
+//                             "_bearing": 129.375,
+//                             "_distanceToNext": 205,
+//                             "_frc": 6,
+//                             "_fow": 3,
+//                             "_lfrcnp": 6,
+//                             "_isLast": false,
+//                             "_longitude": 3.7538936137926395,
+//                             "_latitude": 52.374883889902236,
+//                             "_sequenceNumber": 1
+//                         }
+//                     }, {
+//                         "type": "LocationReferencePoint",
+//                         "properties": {
+//                             "_bearing": 309.375,
+//                             "_distanceToNext": 0,
+//                             "_frc": 6,
+//                             "_fow": 3,
+//                             "_lfrcnp": 7,
+//                             "_isLast": true,
+//                             "_longitude": 4.7563336137926395,
+//                             "_latitude": 52.373583889902235,
+//                             "_sequenceNumber": 2
+//                         }
+//                     }
+//                 ]
+//             },
+//             "_offsets": {
+//                 "type": "Offsets",
+//                 "properties": {
+//                     "_pOffset": 0,
+//                     "_nOffset": 0,
+//                     "_version": 3,
+//                     "_pOffRelative": 0,
+//                     "_nOffRelative": 0
+//                 }
+//             }
+//         }
+//     };
+//     const rawLocationReference2 = Serializer.deserialize(jsonObject2);
+//     const locationReference2 = binaryEncoder.encodeDataFromRLR(rawLocationReference2);
+//     const openLrBinary2 = locationReference2.getLocationReferenceData();
+//     const openLrString2 = openLrBinary2.toString('base64');
+//     console.log(openLrString2);
+//
+//     const binaryDecoder = new BinaryDecoder();
+//
+//     // const openLrString = 'CwNhbCU+jzPLAwD0/34zGw==';
+//     const openLrBinary = Buffer.from(openLrString2, 'base64');
+//     const locationReference = LocationReference.fromIdAndBuffer('binary', openLrBinary);
+//     const rawLocationReference = binaryDecoder.decodeData(locationReference);
+//     const jsonObject = Serializer.serialize(rawLocationReference);
+//     console.log(jsonObject);
+//
+//     // expect(openLrString2).toEqual(openLrString);
+//     expect(jsonObject).toEqual(jsonObject2);
+// });
