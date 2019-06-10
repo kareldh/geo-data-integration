@@ -6,7 +6,7 @@ import {fetchRoutableTile, loadNodesLineStringsWegenregisterAntwerpen} from "../
 import {filterHighwayData, getMappedElements, getRoutableTilesNodesAndLines, parseToJson} from "../Data/ParseData";
 import MapDataBase from "../OpenLR/map/MapDataBase";
 import RoutableTilesIntegration from "../OpenLRIntegration/RoutableTilesIntegration";
-import {_fromOneToOther, _fromOneToSame, decoderProperties} from "./EncodeDecodeDemoTestFunctions";
+import {_fromOneToOther, _fromOneToSame, decoderProperties} from "./EncodeDecodeDemoTestFunctions.test";
 import LineEncoder from "../OpenLR/coder/LineEncoder";
 import {loadOsmTestData} from "../Data/LoadTestData";
 import OSMIntegration from "../OpenLRIntegration/OSMIntegration";

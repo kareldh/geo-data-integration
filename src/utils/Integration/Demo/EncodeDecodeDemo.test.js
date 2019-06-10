@@ -12,7 +12,7 @@ import {
     wegenregisterToWegenregister, wegenregisterToWegenregisterNoEncoding,
     wegenregisterToWegenregisterNoEncodingNoShortLines,
     wegenregisterToWegenregisterNoShortLines
-} from "./EncodeDecodeDemoTestFunctions";
+} from "./EncodeDecodeDemoTestFunctions.test";
 import {internalPrecisionEnum} from "../OpenLR/map/Enum";
 import {configProperties} from "../OpenLR/coder/CoderSettings";
 

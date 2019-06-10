@@ -4,7 +4,6 @@
 
 import MapDataBase from "../OpenLR/map/MapDataBase";
 import WegenregisterAntwerpenIntegration from "../OpenLRIntegration/WegenregisterAntwerpenIntegration";
-import {loadOsmTileTestData} from "../Data/LoadTestData";
 import {
     filterHighwayData, getMappedElements, getRoutableTilesNodesAndLines,
     parseToJson
@@ -19,6 +18,7 @@ import {
     fetchOsmData, fetchOsmTileData, fetchRoutableTile,
     loadNodesLineStringsWegenregisterAntwerpen
 } from "../Data/LoadData";
+import {loadOsmTestData} from "../Data/LoadTestData";
 
 export let decoderPropertiesAlwaysProj = {
     dist: 5,    //maximum distance (in meter) of a candidate node to a LRP
@@ -852,3 +852,19 @@ export function wegenregisterToWegenregisterNoEncodingNoShortLines(decoderProper
         });
     });
 }
+
+test('osm to osm with testdata default props',(done)=>{
+    loadOsmTestData()
+        .then((data)=>{parseToJson(data)
+            .then((json)=>{getMappedElements(json)
+                .then((elements)=>{filterHighwayData(elements)
+                    .then((highwayData)=>{
+                        let osmMapDataBase = new MapDataBase();
+                        OSMIntegration.initMapDataBase(osmMapDataBase,highwayData.nodes,highwayData.ways,highwayData.relations);
+
+                        let result = _fromOneToSame(osmMapDataBase,decoderProperties,(fromDataBase,id)=>{return LinesDirectlyToLRPs([fromDataBase.lines[id]])});
+
+                        console.log(result);
+                        done();
+                    })})})});
+},60000);
