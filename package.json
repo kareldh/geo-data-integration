@@ -1,6 +1,6 @@
 {
   "name": "geo-data-integration",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "module": "module.js",
   "description": "This package is based on the OpenLR location referencing methods to map a linestring to the network of a digital map.",
@@ -24,13 +24,15 @@
   },
   "scripts": {
     "build": "npx babel src --out-dir transpiled",
-    "test": "jest src"
+    "test": "jest src",
+    "coverage": "yarn test && node_modules/.bin/codecov --token=849d446a-3978-46dc-bdb7-5cbeef1c7697"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
+    "codecov": "^3.5.0",
     "jest": "^24.8.0"
   },
   "repository": {
@@ -40,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/kareldh/geo-data-integration/issues"
   },
-  "homepage": "https://github.com/kareldh/geo-data-integration"
+  "homepage": "https://github.com/kareldh/geo-data-integration",
+  "jest": {
+    "collectCoverage": true
+  }
 }
