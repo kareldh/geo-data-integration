@@ -27,7 +27,7 @@ Let mapDataBase = new MapDataBase(lines,nodes);
 
 Encode a line:
 ```Javascript
-let LRP = LineEncoder.encode(mapDataBase,l1,0,0); // mapdatabase, line to encode, positive offset, negative offset
+let encoded = LineEncoder.encode(mapDataBase,l1,0,0); // mapdatabase, line to encode, positive offset, negative offset
 ```
 or
 ```Javascript
@@ -37,16 +37,16 @@ let location = {
   posOffset: 0,
   negOffset: 0
 };
-let LRP = OpenLREncoder.encode(location,mapDataBase);
+let encoded = OpenLREncoder.encode(location,mapDataBase);
 ```
 
 Decode the encoded line:
 ```Javascript
-let decoded = LineDecoder.decode(mapDataBase,LRP.LRPs,LRP.posOffset,LRP.negOffset,decoderProperties);
+let decoded = LineDecoder.decode(mapDataBase,encoded.LRPs,encoded.posOffset,encoded.negOffset,decoderProperties);
 ```
 or
 ```Javascript
-let decoded = OpenLRDecoder.decode(LRP,mapDataBase,decoderproperties);
+let decoded = OpenLRDecoder.decode(encoded,mapDataBase,decoderproperties);
 ```
 
 Decoderproperties format:
