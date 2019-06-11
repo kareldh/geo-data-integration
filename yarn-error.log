@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js build
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js coverage
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Perl64\site\bin;C:\Perl64\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Broadcom\Broadcom 802.11 Network Adapter\Driver;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Progra~1\Java\jdk1.8.0_172\bin;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\SysWOW64\WindowsPowerShell\v1.0\Modules\TShell\TShell\;C:\Users\Karel2\AppData\Local\Programs\Python\Python36-32;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Yarn\bin\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Users\Karel2\AppData\Roaming\Python\Python36\Scripts;C:\Users\Karel2\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\Karel2\AppData\Local\Microsoft\WindowsApps;C:\Users\Karel2\AppData\Local\Yarn\bin;C:\Users\Karel2\.dotnet\tools;C:\Users\Karel2\AppData\Roaming\npm;C:\Users\Karel2\AppData\Local\Programs\Git\cmd
@@ -65,7 +65,9 @@ npm manifest:
       "rollup": "^1.15.1",
       "rollup-plugin-babel": "^4.3.2",
       "rollup-plugin-commonjs": "^10.0.0",
-      "rollup-plugin-node-resolve": "^5.0.1"
+      "rollup-plugin-node-resolve": "^5.0.1",
+      "rollup-plugin-replace": "^2.2.0",
+      "rollup-plugin-uglify": "^6.0.2"
     },
     "repository": {
       "type": "git",
@@ -2758,7 +2760,7 @@ Lockfile:
       jest-util "^24.8.0"
       string-length "^2.0.0"
   
-  jest-worker@^24.6.0:
+  jest-worker@^24.0.0, jest-worker@^24.6.0:
     version "24.6.0"
     resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-24.6.0.tgz#7f81ceae34b7cde0c9827a6980c35b7cdc0161b3"
     dependencies:
@@ -3805,7 +3807,23 @@ Lockfile:
       resolve "^1.11.0"
       rollup-pluginutils "^2.8.0"
   
-  rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.7.0, rollup-pluginutils@^2.8.0:
+  rollup-plugin-replace@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/rollup-plugin-replace/-/rollup-plugin-replace-2.2.0.tgz#f41ae5372e11e7a217cde349c8b5d5fd115e70e3"
+    dependencies:
+      magic-string "^0.25.2"
+      rollup-pluginutils "^2.6.0"
+  
+  rollup-plugin-uglify@^6.0.2:
+    version "6.0.2"
+    resolved "https://registry.yarnpkg.com/rollup-plugin-uglify/-/rollup-plugin-uglify-6.0.2.tgz#681042cfdf7ea4e514971946344e1a95bc2772fe"
+    dependencies:
+      "@babel/code-frame" "^7.0.0"
+      jest-worker "^24.0.0"
+      serialize-javascript "^1.6.1"
+      uglify-js "^3.4.9"
+  
+  rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.7.0, rollup-pluginutils@^2.8.0:
     version "2.8.1"
     resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.1.tgz#8fa6dd0697344938ef26c2c09d2488ce9e33ce97"
     dependencies:
@@ -3862,6 +3880,10 @@ Lockfile:
   semver@^6.0.0, semver@^6.1.0:
     version "6.1.1"
     resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.1.tgz#53f53da9b30b2103cd4f15eab3a18ecbcb210c9b"
+  
+  serialize-javascript@^1.6.1:
+    version "1.7.0"
+    resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.7.0.tgz#d6e0dfb2a3832a8c94468e6eb1db97e55a192a65"
   
   set-blocking@^2.0.0, set-blocking@~2.0.0:
     version "2.0.0"
@@ -4209,7 +4231,7 @@ Lockfile:
     dependencies:
       prelude-ls "~1.1.2"
   
-  uglify-js@^3.1.4:
+  uglify-js@^3.1.4, uglify-js@^3.4.9:
     version "3.6.0"
     resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
     dependencies:
@@ -4473,7 +4495,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c npm run clean && npm run build:cjs && npm run build:es && npm run build:umd:min
+  Arguments: /d /s /c yarn test && node_modules\.bin\codecov --token=849d446a-3978-46dc-bdb7-5cbeef1c7697
   Directory: D:\Schooldocumenten\Masterproef_projects\geo_data_integration
   Output:
   
