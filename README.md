@@ -4,7 +4,7 @@
 
 This package is based on the OpenLR location referencing methods to map a linestring to the network of a digital map.
 
-First version where many things can still be improved.
+First version where many things can still be improved, mostly the ease of use.
 
 ## Usage:
 
@@ -83,3 +83,5 @@ fetchRoutableTile(14,8392,5469)
                 });
 ```
 
+---
+Demo app that uses this code can be found [here](https://github.com/kareldh/discovery_and_integration_demo) and deployed [here](https://kareldh.github.io/discovery_and_integration_demo/#/)
