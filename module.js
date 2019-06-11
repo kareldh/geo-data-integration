@@ -1,5 +1,5 @@
-import Decoder from "./src/utils/Integration/OpenLR/Decoder"
-import Encoder from "./src/utils/Integration/OpenLR/Encoder"
+import OpenLRDecoder from "./src/utils/Integration/OpenLR/Decoder"
+import OpenLREncoder from "./src/utils/Integration/OpenLR/Encoder"
 
 import {configProperties,decoderProperties} from "./src/utils/Integration/OpenLR/Coder/CoderSettings"
 import Location from "./src/utils/Integration/OpenLR/Coder/Location"
@@ -23,30 +23,52 @@ import WegenregisterAntwerpenIntegration from "./src/utils/Integration/OpenLRInt
 
 import * as tileUtils from "./src/utils/tileUtils"
 
-exports.Decoder = Decoder;
-exports.Encoder = Encoder;
+// exports.Decoder = OpenLRDecoder;
+// exports.Encoder = OpenLREncoder;
+//
+// exports.configProperties = configProperties;
+// exports.decoderProperties = decoderProperties;
+// exports.Location = Location;
+// exports.LocationReferencePoint = LocationReferencePoint;
+// exports.LineEncoder = LineEncoder;
+// exports.LineDecoder = LineDecoder;
+// exports.JsonFormat = JsonFormat;
+// exports.RawLineLocationReference = RawLineLocationReference;
+//
+// exports.Enum = Enum;
+// exports.Line = Line;
+// exports.Node = Node;
+// exports.MapDataBase = MapDataBase;
+//
+// exports.LinesDirectlyToLRPs = LinesDirectlyToLRPs;
+//
+// exports.GeoJsonIntegration = GeoJsonIntegration;
+// exports.OSMIntegration = OSMIntegration;
+// exports.RoutableTilesIntegration = RoutableTilesIntegration;
+// exports.WegenregisterAntwerpenIntegration = WegenregisterAntwerpenIntegration;
+//
+// exports.TileUtils = tileUtils;
 
-exports.configProperties = configProperties;
-exports.decoderProperties = decoderProperties;
-exports.Location = Location;
-exports.LocationReferencePoint = LocationReferencePoint;
-exports.LineEncoder = LineEncoder;
-exports.LineDecoder = LineDecoder;
-exports.JsonFormat = JsonFormat;
-exports.RawLineLocationReference = RawLineLocationReference;
-
-exports.Enum = Enum;
-exports.Line = Line;
-exports.Node = Node;
-exports.MapDataBase = MapDataBase;
-
-exports.LinesDirectlyToLRPs = LinesDirectlyToLRPs;
-
-exports.GeoJsonIntegration = GeoJsonIntegration;
-exports.OSMIntegration = OSMIntegration;
-exports.RoutableTilesIntegration = RoutableTilesIntegration;
-exports.WegenregisterAntwerpenIntegration = WegenregisterAntwerpenIntegration;
-
-exports.TileUtils = tileUtils;
-
+export {
+    OpenLRDecoder as Decoder,
+    OpenLREncoder as Encoder,
+    configProperties,
+    decoderProperties,
+    Location,
+    LocationReferencePoint,
+    LineEncoder,
+    LineDecoder,
+    JsonFormat,
+    RawLineLocationReference,
+    Enum,
+    Line as GeoLine,
+    Node as GeoNode,
+    MapDataBase,
+    LinesDirectlyToLRPs,
+    GeoJsonIntegration,
+    OSMIntegration,
+    RoutableTilesIntegration,
+    WegenregisterAntwerpenIntegration,
+    tileUtils
+};
 
