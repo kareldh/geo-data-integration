@@ -68,3 +68,14 @@ let decoderProperties = {
     distMultiplierForRetry: 2 // multiplier for the distance value to use when retrying
 };
 ```
+### Example initialisation of mapdatabase with [Routable Tiles](https://openplanner.team/specs/2018-11-routable-tiles.html)
+```Javascript
+fetchRoutableTile(14,8392,5469)
+                .then((data)=>{getRoutableTilesNodesAndLines(data.triples)
+                    .then((nodesAndLines)=> {
+                        let mapDatabase = new MapDataBase();
+                        let parsed = RoutableTilesIntegration.getNodesLines(mapDatabase, nodesAndLines.nodes,nodesAndLines.lines);
+                        mapDataBase.addData(parsed.lines,parsed.nodes);
+                    })});
+```
+
