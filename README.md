@@ -70,12 +70,16 @@ let decoderProperties = {
 ```
 ### Example initialisation of mapdatabase with [Routable Tiles](https://openplanner.team/specs/2018-11-routable-tiles.html)
 ```Javascript
+let mapDatabase = new MapDataBase();
 fetchRoutableTile(14,8392,5469)
                 .then((data)=>{getRoutableTilesNodesAndLines(data.triples)
-                    .then((nodesAndLines)=> {
-                        let mapDatabase = new MapDataBase();
-                        let parsed = RoutableTilesIntegration.getNodesLines(mapDatabase, nodesAndLines.nodes,nodesAndLines.lines);
-                        mapDataBase.addData(parsed.lines,parsed.nodes);
-                    })});
+                  .then((nodesAndLines)=> {
+                      let parsed = RoutableTilesIntegration.getNodesLines(mapDatabase, nodesAndLines.nodes,nodesAndLines.lines);
+                      mapDataBase.addData(parsed.lines,parsed.nodes);
+                  })
+                  .then(()=>{
+                    //database initialized and ready to use
+                  });
+                });
 ```
 
