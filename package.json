@@ -1,6 +1,6 @@
 {
   "name": "geo-data-integration",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
