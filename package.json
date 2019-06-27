@@ -1,6 +1,6 @@
 {
   "name": "geo-data-integration",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -8,6 +8,7 @@
   "author": "Karel D'haene <karel.dhaene>@gmail.com (https://github.com/kareldh)",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.4.5",
     "@turf/along": "^6.0.1",
     "@turf/bearing": "^6.0.1",
     "@turf/distance": "^6.0.1",
