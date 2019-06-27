@@ -1,7 +1,4 @@
 {
-  "presets": [
-    "@babel/preset-env"
-  ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
@@ -9,6 +6,22 @@
     "@babel/plugin-transform-strict-mode"
   ],
   "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current",
+              "browsers": ["last 2 versions", "ie >= 11"]
+            },
+            "modules": "commonjs",
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": ["@babel/plugin-transform-runtime"]
+    },
     "rollup": {
       "presets": [
         [

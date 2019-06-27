@@ -4,22 +4,6 @@ import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import { uglify } from 'rollup-plugin-uglify'
 
-import pkg from "./package.json";
-
-const external = [
-    ...Object.keys(pkg.peerDependencies || {}),
-    ...Object.keys(pkg.dependencies || {}),
-];
-
-const makeExternalPredicate = externalArr => {
-    if (externalArr.length === 0) {
-        return () => false;
-    }
-    const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
-    return id => pattern.test(id);
-};
-
-
 const env = process.env.NODE_ENV;
 
 const config = {
@@ -32,15 +16,28 @@ const config = {
         format: 'umd',
         name: 'GeoDataIntegration',
     },
-    external: makeExternalPredicate(external),
+    external: [
+        "@turf/along",
+        "@turf/bearing",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/nearest-point-on-line",
+        "@turf/point-to-line-distance",
+        "axios",
+        "fast-xml-parser",
+        "geojson-rbush",
+        "heap",
+        "ldfetch",
+        "rbush"
+    ],
     plugins: [
-        replace({
-            'process.env.NODE_ENV': JSON.stringify(env),
-        }),
         nodeResolve(),
         babel({
-            exclude: 'node_modules/**',
+            exclude: '**/node_modules/**',
             runtimeHelpers: true,
+        }),
+        replace({
+            'process.env.NODE_ENV': JSON.stringify(env),
         }),
         commonjs(),
     ],
