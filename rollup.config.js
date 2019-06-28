@@ -14,6 +14,16 @@ const config = {
                 ? 'dist/geo-data-integration.min.js'
                 : 'dist/geo-data-integration.js',
         format: 'umd',
+        globals: {
+            "@turf/along": 'turf',
+            "@turf/bearing": 'turf',
+            "@turf/distance": 'turf',
+            "@turf/helpers": 'turf',
+            "@turf/nearest-point-on-line": 'turf',
+            "@turf/point-to-line-distance": 'turf',
+            "heap": 'Heap',
+            "geojson-rbush": 'geojsonrbush'
+        },
         name: 'GeoDataIntegration',
     },
     external: [
