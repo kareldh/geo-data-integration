@@ -1,9 +1,9 @@
-import geojsonrdbush from 'geojson-rbush'
+import geojsonrbush from 'geojson-rbush'
 import {polygon} from '@turf/helpers'
 
 export default class GeoJSONRbushSearchTree{
     constructor(){
-        this.tree = geojsonrdbush();
+        this.tree = geojsonrbush();
     }
 
     addData(data){
