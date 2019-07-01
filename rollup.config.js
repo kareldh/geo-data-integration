@@ -14,34 +14,33 @@ const config = {
                 ? 'dist/geo-data-integration.min.js'
                 : 'dist/geo-data-integration.js',
         format: 'umd',
-        globals: {
-            "@turf/along": 'turf',
-            "@turf/bearing": 'turf',
-            "@turf/distance": 'turf',
-            "@turf/helpers": 'turf',
-            "@turf/nearest-point-on-line": 'turf',
-            "@turf/point-to-line-distance": 'turf',
-            "heap": 'Heap',
-            "geojson-rbush": 'geojsonrbush'
-        },
+        // globals: {
+        //     "@turf/along": 'along',
+        //     "@turf/bearing": 'bearing',
+        //     "@turf/distance": 'distance',
+        //     "@turf/helpers": 'helpers',
+        //     "@turf/nearest-point-on-line": 'nearestPointOnLine',
+        //     "@turf/point-to-line-distance": 'pointToLineDistance',
+        //     "heap": 'Heap',
+        //     "geojson-rbush": 'geojsonrbush'
+        // },
         name: 'GeoDataIntegration',
     },
     external: [
-        "@turf/along",
-        "@turf/bearing",
-        "@turf/distance",
-        "@turf/helpers",
-        "@turf/nearest-point-on-line",
-        "@turf/point-to-line-distance",
-        "axios",
+        // "@turf/along",
+        // "@turf/bearing",
+        // "@turf/distance",
+        // "@turf/helpers",
+        // "@turf/nearest-point-on-line",
+        // "@turf/point-to-line-distance",
+        "axios", //todo: these shouldn't be dependencies for the algorithm, split to a new data fetch package/integration demo package
         "fast-xml-parser",
-        "geojson-rbush",
-        "heap",
+        // "geojson-rbush",
+        // "heap",
         "ldfetch",
-        "rbush"
+        // "rbush"
     ],
     plugins: [
-        nodeResolve(),
         babel({
             exclude: '**/node_modules/**',
             runtimeHelpers: true,
@@ -49,6 +48,8 @@ const config = {
         replace({
             'process.env.NODE_ENV': JSON.stringify(env),
         }),
+        // json(),
+        nodeResolve({browser: true}),
         commonjs(),
     ],
 };

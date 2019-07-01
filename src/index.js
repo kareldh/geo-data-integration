@@ -23,3 +23,22 @@ export { default as WegenregisterAntwerpenIntegration } from "./utils/Integratio
 
 export { getTileXYForLocation, tile2boundingBox } from "./utils/tileUtils"
 
+/*
+ * Below currently exported for testing and demoing purposes. Not actually part of the OpenLR implementation.
+ * todo: Should be split up into a different package in the future, to to keep the package size low.
+ * */
+export {
+    fetchOsmData,
+    fetchRoutableTile,
+    loadNodesLineStringsWegenregisterAntwerpen
+} from "./utils/Integration/Data/LoadData";
+
+export {
+    filterHighwayData,
+    getMappedElements, getRoutableTilesNodesAndLines,
+    parseToJson
+} from "./utils/Integration/Data/ParseData";
+
+export {mapNodesLinesToID} from "./utils/Integration/OpenLR/test/Helperfunctions";
+export {map} from "./utils/Integration/Data/testdata/junction_with_lanes_manual";
+
