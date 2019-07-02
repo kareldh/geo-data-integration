@@ -3,7 +3,9 @@ import ldfetch from "ldfetch";
 import {DATASET_URL} from "./const";
 import {tile2boundingBox} from "../../tileUtils";
 
-let REACT_APP_WEGENREGISTER_ANTWERPEN_URL="http://portaal-stadantwerpen.opendata.arcgis.com/datasets/6bad868c084a43ef8031cfe1b96956b2_297.geojson";
+let REACT_APP_WEGENREGISTER_ANTWERPEN_URL = process.env.NODE_ENV === undefined
+    ? "http://portaal-stadantwerpen.opendata.arcgis.com/datasets/6bad868c084a43ef8031cfe1b96956b2_297.geojson"
+    : "https://cors-anywhere.herokuapp.com/https://portaal-stadantwerpen.opendata.arcgis.com/datasets/6bad868c084a43ef8031cfe1b96956b2_297.geojson";
 
 export function loadNodesLineStringsWegenregisterAntwerpen(){
     return new Promise((resolve, reject) => {
